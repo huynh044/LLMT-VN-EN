@@ -40,7 +40,7 @@ def ocr_image(file: UploadFile = File(...)):
 @app.post("/api/translate")
 def translate(text: str = Form(...)):
     glossary = load_glossary()
-    relevant_glossary = extract_relevant_terms(text, glossary)
+    relevant_glossary = extract_relevant_terms(text, glossary, similarity_threshold=0.3, max_terms=10)
     result = translate_with_llm(text, relevant_glossary, model)
     save_translation_history(text, result, relevant_glossary)
     return result  

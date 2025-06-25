@@ -48,7 +48,7 @@ def translate(text: str = Form(...)):
 @app.post("/api/add_glossary_txt")
 def add_glossary_txt(data: str = Form(...)):
     """
-    API thêm hoặc cập nhật các cặp từ vựng Nhật-Anh vào file JSON glossary.
+    API thêm hoặc cập Việt các cặp từ vựng Việt-Anh vào file JSON glossary.
     """
     file_path = './data/glossary.json'
     try:
@@ -60,7 +60,7 @@ def add_glossary_txt(data: str = Form(...)):
 @app.post("/api/add_glossary_xlsx")
 def add_glossary_xlsx(file: UploadFile = File(...)):
     """
-    API thêm hoặc cập nhật các cặp từ vựng từ file Excel vào file JSON glossary.
+    API thêm hoặc cập Việt các cặp từ vựng từ file Excel vào file JSON glossary.
     """
     file_path = './data/glossary.json'
     temp_path = f"temp_{file.filename}"

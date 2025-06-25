@@ -4,7 +4,7 @@ import pandas as pd
 
 def add_to_json_file(file_path, data: str):
     """
-    Thêm hoặc cập nhật các cặp từ vựng Nhật-Anh vào file JSON glossary.
+    Thêm hoặc cập Việt các cặp từ vựng Việt-Anh vào file JSON glossary.
     Tham số:
         file_path (str): Đường dẫn file JSON glossary.
         data (str): Chuỗi các cặp từ vựng dạng 'vn:en:src', phân tách bằng dấu phẩy.
@@ -46,7 +46,7 @@ def add_to_json_file(file_path, data: str):
 
 def add_xlsx_to_json(file_path, xlsx_path: str):
     """
-    Đọc file Excel và thêm hoặc cập nhật các cặp từ vựng Nhật-Anh vào file JSON glossary.
+    Đọc file Excel và thêm hoặc cập Việt các cặp từ vựng Việt-Anh vào file JSON glossary.
     Tham số:
         file_path (str): Đường dẫn file JSON glossary.
         xlsx_path (str): Đường dẫn file Excel chứa hai cột 'Vietnamese' và 'English'.

@@ -7,7 +7,7 @@ def save_translation_history(text, result, source_text):
     """
     Lưu lịch sử dịch thuật vào file JSON.
     Tham số:
-        text (str): Câu tiếng Nhật gốc.
+        text (str): Câu tiếng Việt gốc.
         result (dict): Kết quả dịch trả về từ LLM.
         source_text (dict): Glossary đã sử dụng cho lần dịch này.
     """

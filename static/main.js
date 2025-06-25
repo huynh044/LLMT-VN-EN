@@ -107,7 +107,7 @@ glossaryFile.addEventListener('change', async function () {
     this.value = '';
 });
 
-// Cập nhật hàm addCurrentPairToGlossary để thêm source
+// Cập Việt hàm addCurrentPairToGlossary để thêm source
 async function addCurrentPairToGlossary() {
     const vn = document.getElementById('inputText').value.trim();
     const en = document.getElementById('outputText').textContent.trim();

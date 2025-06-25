@@ -21,7 +21,7 @@ def parse_translation_output(raw_output):
 
 def load_glossary():
     """
-    Đọc file glossary.json và trả về từ điển các cặp từ vựng Nhật-Anh.
+    Đọc file glossary.json và trả về từ điển các cặp từ vựng Việt-Anh.
     Trả về:
         list: Danh sách các mục glossary từ file JSON.
     """
@@ -33,7 +33,7 @@ def extract_relevant_terms(text, glossary):
     """
     Lọc ra các mục glossary có từ vựng xuất hiện trong text.
     Tham số:
-        text (str): Câu tiếng Nhật cần dịch.
+        text (str): Câu tiếng Việt cần dịch.
         glossary (list): Danh sách glossary từ file JSON.
     Trả về:
         list: Danh sách các mục glossary liên quan.

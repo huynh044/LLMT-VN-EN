@@ -4,4 +4,5 @@ data_format:
   + Vietnamese
   + English
   + Source: Context of the translation
-
+- Python version: 3.11.13
+- Command to install libraries: pip install -r requirements.txt

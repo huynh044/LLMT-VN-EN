@@ -1,0 +1,15 @@
+[
+  {
+    "timestamp": "2025-06-26T22:15:36.657460",
+    "vn_text": "hôm nay trời đẹp thật",
+    "glossary": [],
+    "result": {
+      "translation": "today the weather is beautiful",
+      "alternatives": [
+        "the weather is nice today",
+        "it's a beautiful day today",
+        "today is a fine weather day"
+      ]
+    }
+  }
+]

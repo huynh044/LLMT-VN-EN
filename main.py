@@ -23,8 +23,9 @@ app.add_middleware(
 )
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
-model = get_llm()
-reader = easyocr.Reader(['vn', 'en'], gpu=False)
+# Model will be loaded lazily when needed
+model = None
+reader = easyocr.Reader(['vi', 'en'], gpu=False)
 
 @app.post("/api/ocr")
 def ocr_image(file: UploadFile = File(...)):
@@ -39,6 +40,9 @@ def ocr_image(file: UploadFile = File(...)):
 
 @app.post("/api/translate")
 def translate(text: str = Form(...)):
+    global model
+    if model is None:
+        model = get_llm()
     glossary = load_glossary()
     relevant_glossary = extract_relevant_terms(text, glossary, similarity_threshold=0.3, max_terms=10)
     result = translate_with_llm(text, relevant_glossary, model)
@@ -94,4 +98,4 @@ if __name__ == "__main__":
     """
     Chạy server FastAPI ở chế độ reload cho phát triển.
     """
-    uvicorn.run("main:app", host="127.0.0.1", port=3000, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)

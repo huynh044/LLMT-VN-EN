@@ -16,17 +16,33 @@ def get_llm():
         return llm
 
     print("Loading model...")
-    llm = Llama(
-            model_path="./model/mistral-7b-instruct-v0.2.Q4_K_M.gguf",
-            n_threads=6,
-            n_batch=256,
-            n_ctx=4096,
-            seed=42,
-            f16_kv=False,       
-            logits_all=False,
-            verbose=False,
-            use_mlock=True    
-        )
+    # Get the directory where this script is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    model_path = os.path.join(script_dir, "model", "mistral-7b-instruct-v0.2.Q4_K_M.gguf")
+    
+    print(f"Model path: {model_path}")
+    if not os.path.exists(model_path):
+        raise FileNotFoundError(f"Model file not found at: {model_path}")
+    
+    print(f"Model file size: {os.path.getsize(model_path)} bytes")
+    
+    try:
+        llm = Llama(
+                model_path=model_path,
+                n_threads=4,  # Reduced from 6 to be more conservative
+                n_batch=128,  # Reduced from 256 to use less memory
+                n_ctx=2048,   # Reduced from 4096 to use less memory
+                seed=42,
+                f16_kv=False,       
+                logits_all=False,
+                verbose=False,
+                use_mlock=False,  # Changed to False to avoid memory locking issues
+                use_mmap=True     # Enable memory mapping for better performance
+            )
+        print("Model loaded successfully!")
+    except Exception as e:
+        print(f"Error loading model: {e}")
+        raise
     return llm
 
 def build_prompt(text, glossary):

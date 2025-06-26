@@ -24,7 +24,7 @@ app.add_middleware(
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 model = get_llm()
-reader = easyocr.Reader(['ja', 'en'], gpu=False)
+reader = easyocr.Reader(['vn', 'en'], gpu=False)
 
 @app.post("/api/ocr")
 def ocr_image(file: UploadFile = File(...)):
@@ -94,4 +94,4 @@ if __name__ == "__main__":
     """
     Chạy server FastAPI ở chế độ reload cho phát triển.
     """
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=3000, reload=True)

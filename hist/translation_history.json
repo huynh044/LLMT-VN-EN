@@ -11,5 +11,18 @@
         "today is a fine weather day"
       ]
     }
+  },
+  {
+    "timestamp": "2025-07-09T21:21:12.028176",
+    "vn_text": "hiện tại là 10 giờ sáng",
+    "glossary": [],
+    "result": {
+      "translation": "Currently it is 10 o'clock in the morning",
+      "alternatives": [
+        "It's 10 AM now.",
+        "The current time is 10 o'clock.",
+        "Presently, the time reads 10 o'clock."
+      ]
+    }
   }
 ]
